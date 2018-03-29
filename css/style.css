@@ -2,6 +2,9 @@
 *{
 	box-sizing: border-box;
 }
+*:focus{
+	outline: none;
+}
 body{
 	margin: 0;
 	background-color: #fff;
@@ -31,9 +34,20 @@ ul, ol{
 img {
 	max-width: 100%;
 }
-button {
+input,
+textarea,
+button{
 	outline: none;
 	border: none;
+}
+button {
+	cursor: pointer;
+	background-color: transparent;
+}
+textarea{
+	resize: vertical;
+}
+input[type="submit"]{
 	cursor: pointer;
 }
 blockquote{
@@ -41,10 +55,27 @@ blockquote{
 }
 /* ===== Reset end ===== */
 
-/* ===== Default component start =====*/
-.container-fluid{
-	padding: 0 15px;
+/* ===== Default classes start ===== */
+.text-center{
+	text-align: center;
+} 
+.text-right{
+	text-align: right;
 }
+.text-justify{
+	text-align: justify;
+}
+.bg-black{
+	background-color: #111;
+}
+.bg-gray{
+	background-color: #f8f8f8;
+}
+/* ===== Default classes end */
+
+/* ===== Default component start =====*/
+
+/* ----- Header start ----- */
 .header{
 	overflow: hidden;
 	padding: 25px 0;
@@ -53,11 +84,9 @@ blockquote{
 	width: 100%;
 	z-index: 99;
 }
-
 .header .logo{
 	float: left;
 }
-
 .header .header-nav{
 	float: right;
 	font-weight: 400;
@@ -74,10 +103,133 @@ blockquote{
 .header .header-nav li + li{
 	margin-left: 34px;
 }
+/* ----- Header end ----- */
+.small-section{
+	padding: 70px 0;
+}
+.default-section{
+	padding: 135px 0;
+}
+.container{
+	max-width: 1200px;
+	padding: 0 15px;
+	margin: auto;
+}
+.container-fluid{
+	padding: 0 15px;
+}
+.title{
+	font-family: 'Dosis', sans-serif;
+	text-transform: uppercase;
+	color: #111;
+}
+.title.section-title{
+	font-size: 18px;
+	letter-spacing: 0.5em;
+	margin-bottom: 75px;
+	font-weight: 400;
+}
+.title.title-white{
+	color: #fff;
+}
+.title.section-title-light{
+	font-size: 18px;
+	letter-spacing: 0.3em;
+	margin-bottom: 20px;
+	font-weight: 300;
+}
+.default-text{
+	font-size: 15px;
+	line-height: 1.7333;
+	font-weight: 300;
+}
+blockquote, 
+.blockquote{
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 1.6;
+}
+blockquote span,
+.blockquote span{
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+.btn{
+	display: inline-block;
+	padding: 12px 20px;
+	border-radius: 2px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+}
+.btn[disabled]{
+	cursor: not-allowed;
+	opacity: .6;
+}
+.btn.btn-default:hover{
+    background-color: #d1d0d0;
+}
+.btn.btn-default{
+	background-color: #e5e5e5;
+	color: #777;
+}
+.btn.btn-black{
+	background-color: #323232;
+	color: #fff;
+}
+.btn.btn-xs{
+	padding: 7px 11px;
+}
+.form-control{
+	width: 100%;
+	border: 1px solid #e5e5e5;
+	border-radius: 2px;
+	height: 36px;
+	font-size: 12px;
+	font-family: 'Open sans';
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+	color: #777;
+	padding-left: 13px;
+	padding-right: 13px;
+}
+.form-control:focus{
+	border-color: #111;
+}
+textarea.form-control{
+	min-height: 82px;
+	margin-top: 10px;
+}
+.form-control[disabled],
+.form-control.disabled{
+	cursor: not-allowed;
+	opacity: .6;
+}
+.form-control.error{
+	border-color: #f57e7e;
+}
+.form-info{
+	font-size: 11px;
+	font-weight: 400;
+	color: #aaa;
+}
+.form-info .fa{
+    font-size: 12px;
+}
+/*===== Default component end ===== */
 
-/* ===== Default component end */
+/* ===== Guide styles start ===== */
+.guide-section form .form-control + .form-control{
+	margin-bottom: 10px;
+}
+/* ===== Guide styles end ===== */
 
 /* ===== Custom styles start ===== */
+/* ----- Inner start ----- */
 .inner{
 	background-image: url("../img/inner-bg.jpg");
 	background-repeat: no-repeat;
@@ -107,16 +259,221 @@ blockquote{
 	text-indent: 1.7em;
 	text-transform: uppercase;
 }
-.inner span{
+.inner .inner-content span{
 	display: block;
-	font: 300;
+	font-weight: 300;
 	font-size: 19px;
 	font-family: 'Open Sans', sans-serif;
 	color: rgba(254, 254, 254, .68);
 	margin-top: 95px;
 }
+/* ----- Inner end ----- */
 
+/* ----- About studio start ----- */
+
+.team-item .team-item-info span{
+	display: block;
+}
+.team-item-name{
+	font-weight: 400;
+	font-size: 15px;
+	font-family: 'Dosis', sans-serif;
+	color: #777;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	margin-top: 28px;
+}
+.team-item-role{
+	font-weight: 400;
+	font-size: 12px;
+	font-family: 'Dosis', sans-serif;
+	color: #777;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	margin-top: 17px;
+}
+.team-item .team-item-img{
+	position: relative;
+	margin-top: 128px;
+}
+.team-item .team-item-skills{
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	transition: all .2s linear;
+}
+.team-item .team-item-img:hover .team-item-skills{
+	opacity: 1;
+}
+.about-studio{
+	border-bottom: 1px solid #dbdbdb;
+}
+/* ----- About studio end ----- */
+
+/* ----- Services start ----- */
+
+.tabs-nav{
+	overflow: hidden;
+	margin-bottom: 75px;
+}
+#tabs .tabs-nav li{
+	float: left;
+	width: 20%;
+	text-align: center;
+	color: rgba(17, 17, 17, .5);
+}
+#tabs .tabs-nav li span{
+    display: block;
+}
+#tabs .tabs-nav .icon{
+	font-size: 48px;
+}
+#tabs .tabs-nav .tabs-name{
+	font-family: 'Dosis';
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	margin-top: 34px;
+}
+#tabs .tabs-nav .ui-state-active{
+	color: #111;
+}
+/* ----- Services end ----- */
+
+/* ----- Lets talk start ----- */
+.lets-talk-content{
+	padding: 140px 0;
+}
+.lets-talk-content p{
+	color: rgba(255, 255, 255, .7);
+	margin-bottom: 35px;
+}
+.lets-talk .lets-talk-img{
+	margin-top: -32px;
+}
+/* ----- Lets talk end ----- */
+
+/* ----- Portfolio start ----- */
+.portfolio{
+	padding-bottom: 0;
+}
+.portfolio .portfolio-text{
+	max-width: 750px;
+	margin: auto;
+}
+.portfolio-tabs-wrapper{
+	margin-top: 85px;	
+	overflow: hidden;
+}
+#tabs-portfolio{
+	margin: 0 -4px;
+}
+#tabs-portfolio .tabs-portfolio-nav{
+	text-align: center;
+	margin-bottom: 50px;
+}
+#tabs-portfolio .tabs-portfolio-nav li{
+	display: inline-block;
+	font-family: 'Dosis';
+	font-weight: 400;
+	font-size: 13px;
+	letter-spacing: .4em;
+	text-transform: uppercase;
+	color: rgba(17, 17, 17, .5);
+}
+#tabs-portfolio .tabs-portfolio-nav .ui-state-active{
+	color: #111;
+}
+#tabs-portfolio .tabs-portfolio-nav li + li{
+	margin-left: 60px;
+}
+#tabs-portfolio .portfolio-item{
+	float: left;
+	width: 33%;
+	padding: 4px;
+}
+
+#tabs-portfolio .portfolio-item img{
+	filter: grayscale(100%);
+	width: 100%;
+}
+#tabs-portfolio .portfolio-item img:hover{
+	filter: grayscale(0%);
+}
+/* ----- Portfolio end ----- */
+
+/* ----- Subscribe start ----- */
+.subscribe form .form-control{
+	max-width: 290px;
+}
+.subscribe .form-info{
+	margin-top: 17px;
+}
+
+/* ----- Subscribe end ----- */
+
+/* ----- Why choose us start ----- */
+.why-choose-us .icon span{
+	font-size: 48px;
+}
+.why-choose-us .advantages{
+	font-family: 'Dosis', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #000;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	margin: 30px 0;
+}
+.why-choose-us .row + .row{
+	margin-top: 82px;
+}
+/* ----- Why choose us end ----- */
+
+/* ----- Latest news start ----- */
+.latest-news{
+	overflow: hidden;
+}
+.latest-news .all-news a{
+	font-family: 'Dosis', sans-serif;
+	font-size: 11px;
+	font-weight: 400;
+	color: #999;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	float: right;
+}
+.latest-news .news-block-img{
+    filter: grayscale(100%);
+}
+.latest-news .news-block-img:hover{
+	filter: grayscale(0%);
+}
+.latest-news .news-block-title{
+	font-size: 15px;
+	font-weight: 400;
+	color: #777;
+	letter-spacing: 0.2em;
+	margin-top: 29px;
+}
+.news-block .news-block-author{
+	font-family:'Dosis', sans-serif;
+	font-size: 11px;
+	font-weight: 400;
+	color: #999;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	margin-top: 17px;
+}
+.latest-news .news-block-text{
+	margin: 27px 0;
+}
+/* ----- Latest news end ----- */
 /* ===== Custom styles end ===== */
-
+ 
 
 
